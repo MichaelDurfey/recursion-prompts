@@ -7,6 +7,20 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
+  //if n === 0 return n;
+  //Inputs => number
+  //Outputs => number
+  //Constraints => no negative numbers. must be an integer.
+  //Edge cases => number is 1?
+  if (n < 1){ 
+    return n;
+  }
+  if (n === 1){
+    return n
+  }
+  else {
+    return n * factorial(n - 1)
+  }
 };
 
 // 2. Compute the sum of an array of integers.
@@ -185,11 +199,21 @@ var nestedEvenSum = function(obj) {
 // 30. Flatten an array containing nested arrays.
 // flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
 var flatten = function(array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++){
+    if (!Array.isArray(array[i])) {
+      result.push(array[i]);
+    } else {
+      result = result.concat(flatten(array[i]))
+    }
+  }
+  return result;
 };
 
 // 31. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {p:1, o:2, t:2, a:1}
 var letterTally = function(str, obj) {
+
 };
 
 // 32. Eliminate consecutive duplicates in a list. If the list contains repeated
